@@ -1,0 +1,79 @@
+#############
+## Netbeans
+#############
+nbproject/
+build/
+nbbuild/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+#############
+## Visual Studio
+#############
+.vs/
+*.phpproj
+*.phpproj.user
+*.sln
+*.suo
+*.userosscache
+*.sln.docstates
+*.user
+
+#############
+## Sublime
+#############
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+sftp-config.json
+
+#############
+## OSX
+#############
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+#############
+## Windows
+#############
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+#############
+## Other
+#############
+tools/phing-metadata
+.buildpath
+.project
+.settings
+.idea
+.solr
+.ea
+apache
+nginx
+themes/scopes/sass/.sass-cache/
+.sass-cache
+node_modules/
+*.log
+!/themes/op/images/livechat/
+!/themes/recruitment/dist/app/assets/

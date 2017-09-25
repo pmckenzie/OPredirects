@@ -1,0 +1,173 @@
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    BrowserMatch MSIE ie
+    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+  </IfModule>
+</IfModule>
+<IfModule mod_headers.c>
+  Header append Vary User-Agent
+</IfModule>
+
+#AllowEncodedSlashes On
+
+
+# CRM redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^crm\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://op.crm5.dynamics.com/$1 [R,L]
+
+# CRM dev redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^devcrm\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://otagopolydev.crm5.dynamics.com/$1 [R,L]
+
+# CRM uat redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^crmuat\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&amp;wctx=wa%3Fwsilnin3.0%26aeiou%3D9%26fa%4D5275200813%26rves%3D3.2.2202.0%26wi%3DJUI%16wreply%3Dhttps%253A%252F%252Fcrmuat%252Ecrm5%252Edynamics%252Ecom [R,L]
+
+
+# Lynda redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^lynda\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=http://idp.op.ac.nz/adfs/services/trust&amp;target=https://shib.lynda.com/InCommon/$1 [R,L]
+
+# studentMail redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^mail\.student\.op\.ac\.nz [NC,OR]
+RewriteCond %{HTTP_HOST} ^office\.student\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://www.outlook.com/student.op.ac.nz/$1 [R,L]
+
+# Lynda redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^myfiles\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://connect.op.ac.nz/$1 [R,L]
+
+# office redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^office\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&amp;wtrealm=urn:federation:MicrosoftOnline&amp;wctx=MEST%3D0%26LoginOptions%3D2%26wa%3Dwsignin1.0%26rpsnv%3D2%26ver%3D6.1.6206.0%26wp%3DMCMBI%26wreply%3Dhttps%253A%252F%252Fotagopoly.sharepoint.com%252Fsites%252Fopdocs%252FPages%252Fhome.aspx [R,L]
+
+
+# OPDocs redirect rule NOTE: percent signs need to be escaped eg \%20 for spaces
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^opdocs\.op\.ac\.nz [NC,OR]
+
+RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&wctx=MEST\%3D0\%26LoginOptions\%3D2\%26wa\%3Dwsignin1.0\%26rpsnv\%3D2\%26ver\%3D6.1.6206.0\%26wp\%3DMCMBI\%26wreply\%3Dhttps\%253A\%252F\%252Fotagopoly.sharepoint.com\%252Fsites\%252Fopdocs\%252FPages\%252Fhome.aspx [NE,R,L]
+
+# Student office redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^mail\.op\.ac\.nz
+RewriteRule ^(.*)$ https://www.outlook.com/mail.op.ac.nz/  [R,L]
+
+
+# Student office redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^onedrive\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://otagopoly-my.sharepoint.com/$1 [R,L]
+
+
+
+# promapp.op.ac.nz redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^promapp\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/idpinitiatedsignon.aspx?logintoRP=https://go.promapp.com/otagopolytechnic [R,L]
+
+# promapp.op.ac.nz redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^thescopes\.org [NC]
+RewriteRule ^(.*)$ http://www.thescopes.org [R,L]
+
+
+
+# digitalsignage redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^digitalsignage\.op\.ac\.nz [NC]
+RewriteCond %{REQUEST_URI} ^\/?manage
+RewriteRule ^(.*)$ http://120.138.16.172/ [R,L]
+
+# digitalsignage redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^digitalsignage\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ http://202.20.3.21:8026 [R,L]
+
+
+
+###########################################
+## Demo of OPwebsite rules
+
+## COT redirect rule
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} ^/students/campuses/central-otago(.*)$ [NC]
+#RewriteRule ^(.*)$ http://central.op.ac.nz/ [R,L]
+#
+## Only redirect the apply status page. The SA's need apply, but PDFs need everything else.
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^op\.cwp\.govt\.nz$
+#RewriteCond %{REQUEST_URI} ^\/?apply\/status
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+## same thing, but for reports
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^op\.cwp\.govt\.nz$
+#RewriteCond %{REQUEST_URI} ^\/?admin\/reports
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+## redirect tekotago
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^tekotago\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.tekotago\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+## redirect otagopolytechnic.ac.nz
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^otagopolytechnic\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.otagopolytechnic\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+## redirect otagopolytechnic.co.nz
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^otagopolytechnic\.co\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.otagopolytechnic\.co\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^my\.op\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz/hub [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^welcometo\.op\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz/about-us/induction-for-new-staff-to-otago-polytechnic [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^studenthub\.op\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz/hub [R,L]
+#
+## redirect op.ac.nz to www.op.ac.nz
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^op\.ac\.nz$
+#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
+#
+## old issues.php access rewrite to home
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.thescopes\.org$
+#RewriteRule ^issues.php http://www.thescopes.org/ [R,L]
+#
+#RewriteEngine On 
+#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.edubits\.nz$
+#RewriteRule ^(.*)$ http://edubits.nz [R,L]
+#
+
+# CAPM course. I'd rather use the redirector, but that requires no page exists
+#RewriteEngine On
+#RewriteCond %{REQUEST_URI} ^/study/business-tourism-and-it/business/certified-associate-in-project-management(.*)$ [NC]
+#RewriteRule ^(.*)$ https://www.eventbrite.co.nz/e/capm-exam-preparation-course-introductory-session-tickets-20685288254 [R,L]
