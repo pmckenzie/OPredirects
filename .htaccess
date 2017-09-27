@@ -89,6 +89,11 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^digitalsignage\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ http://202.20.3.21:8026 [R,L]
 
+# digitalsignage redirect rule 
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^workspace\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://op3.cwp.govt.nz/ [R,L]
+
 
 
 ###########################################
