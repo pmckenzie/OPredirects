@@ -89,6 +89,15 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^digitalsignage\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ http://202.20.3.21:8026 [R,L]
 
+# changepassword redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^changepassword\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/portal/updatepassword [R,L]
+
+# changepassword redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.changepassword\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/portal/updatepassword [R,L]
 
 
 
