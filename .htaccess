@@ -114,7 +114,7 @@ RewriteRule ^(.*)$ https://otagopoly.sharepoint.com/AssessingLearningConference/
 #www.central.op.ac Redirect
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.central\.op\.ac\.nz [NC]
-RewriteRule ^(.*)$ https://central.op.ac.nz [R,L]
+RewriteRule ^(.*)$ https://central.op.ac.nz/$1 [R,L]
 
 
 ###########################################
