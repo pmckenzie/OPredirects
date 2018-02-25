@@ -109,7 +109,7 @@ RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&wtrealm=urn:feder
 #Confernce hosted at OP for file sharing - Michelle Barron <Michelle.Barron@op.ac.nz>
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^AssessingLearningConference\.op\.ac\.nz [NC]
-RewriteRule ^(.*)$ https://otagopoly.sharepoint.com/AssessingLearningConference/_layouts/15/guestaccess.aspx?folderid=0265b2c67a4254ea8ba2ed285c710b027&authkey=AUalIZmLkFVN5PROL03njNw&expiration=2018-02-12T11\%3A00\%3A00.000Z&e=252077fc3c8d4d32a71bf2955ec4c455  [NE,R,L]
+RewriteRule ^(.*)$ https://otagopoly.sharepoint.com/:f:/g/AssessingLearningConference/EmcsWyYlpKhOui7ShccQsCcBRqUhmYuQVU3k9E4vTeeM3A?e=fvOZg2  [NE,R,L]
 
 #www.central.op.ac Redirect
 RewriteEngine On
