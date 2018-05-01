@@ -116,82 +116,22 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.central\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://central.op.ac.nz/$1 [R,L]
 
+#EDUBITS Redirect
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^edubits\.co\.nz [NC,OR]
+RewriteCond %{HTTP_HOST} ^edubit\.co\.nz [NC,OR]
+RewriteCond %{HTTP_HOST} ^edubits\.ac\.nz [NC,OR]
+RewriteCond %{HTTP_HOST} ^edubit\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://edubits.nz/$1 [R,L]
+
+
 
 ###########################################
-## Demo of OPwebsite rules
+#  CODES:  - https://httpd.apache.org/docs/2.4/rewrite/flags.html
+#   [R] = redirect 
+#   [L]= Last (stop reading futher rules)
+#   [NC] = no case
+#   [NE] = By default, special characters, such as & and ?, for example, will be converted to their hexcode equivalent. Using the [NE] flag prevents that from happening.
+#   [OR] = or flag, many things can match
 
-## COT redirect rule
-#RewriteEngine On
-#RewriteCond %{REQUEST_URI} ^/students/campuses/central-otago(.*)$ [NC]
-#RewriteRule ^(.*)$ http://central.op.ac.nz/ [R,L]
-#
-## Only redirect the apply status page. The SA's need apply, but PDFs need everything else.
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^op\.cwp\.govt\.nz$
-#RewriteCond %{REQUEST_URI} ^\/?apply\/status
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-## same thing, but for reports
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^op\.cwp\.govt\.nz$
-#RewriteCond %{REQUEST_URI} ^\/?admin\/reports
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-## redirect tekotago
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^tekotago\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.tekotago\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-## redirect otagopolytechnic.ac.nz
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^otagopolytechnic\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.otagopolytechnic\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-## redirect otagopolytechnic.co.nz
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^otagopolytechnic\.co\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.otagopolytechnic\.co\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^my\.op\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz/hub [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^welcometo\.op\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz/about-us/induction-for-new-staff-to-otago-polytechnic [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^studenthub\.op\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz/hub [R,L]
-#
-## redirect op.ac.nz to www.op.ac.nz
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^op\.ac\.nz$
-#RewriteRule ^(.*)$ https://www.op.ac.nz%{REQUEST_URI} [R,L]
-#
-## old issues.php access rewrite to home
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.thescopes\.org$
-#RewriteRule ^issues.php http://www.thescopes.org/ [R,L]
-#
-#RewriteEngine On 
-#RewriteCond %{HTTP:X-Forwarded-Host} ^www\.edubits\.nz$
-#RewriteRule ^(.*)$ http://edubits.nz [R,L]
-#
 
-# CAPM course. I'd rather use the redirector, but that requires no page exists
-#RewriteEngine On
-#RewriteCond %{REQUEST_URI} ^/study/business-tourism-and-it/business/certified-associate-in-project-management(.*)$ [NC]
-#RewriteRule ^(.*)$ https://www.eventbrite.co.nz/e/capm-exam-preparation-course-introductory-session-tickets-20685288254 [R,L]
