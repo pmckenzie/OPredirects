@@ -38,7 +38,7 @@ RewriteCond %{HTTP_HOST} ^mail\.student\.op\.ac\.nz [NC,OR]
 RewriteCond %{HTTP_HOST} ^office\.student\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://www.outlook.com/student.op.ac.nz/$1 [R,L]
 
-# Lynda redirect rule
+# Myfiles redirect rule
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^myfiles\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://connect.op.ac.nz/$1 [R,L]
@@ -59,12 +59,15 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^mail\.op\.ac\.nz
 RewriteRule ^(.*)$ https://www.outlook.com/mail.op.ac.nz/  [R,L]
 
+# StudentSupport redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^studentsupport\.op\.ac\.nz
+RewriteRule ^(.*)$ http://studentservices.op.ac.nz/$1  [R,L]
 
 # OneDrive redirect rule
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^onedrive\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://otagopoly-my.sharepoint.com/$1 [R,L]
-
 
 
 # Promapp redirect rule
@@ -133,5 +136,6 @@ RewriteRule ^(.*)$ https://edubits.nz/$1 [R,L]
 #   [NC] = no case
 #   [NE] = By default, special characters, such as & and ?, for example, will be converted to their hexcode equivalent. Using the [NE] flag prevents that from happening.
 #   [OR] = or flag, many things can match
+#   $1   = pass through the whole url e.g /hub
 
 
