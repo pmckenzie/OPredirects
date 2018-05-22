@@ -56,12 +56,12 @@ RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&wtrealm=urn:feder
 
 # O365 Mail redirect rule
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^mail\.op\.ac\.nz
+RewriteCond %{HTTP_HOST} ^mail\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://www.outlook.com/mail.op.ac.nz/  [R,L]
 
 # StudentSupport redirect rule
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^studentsupport\.op\.ac\.nz
+RewriteCond %{HTTP_HOST} ^studentsupport\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ http://studentservices.op.ac.nz/$1  [R,L]
 
 # OneDrive redirect rule
