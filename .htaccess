@@ -32,12 +32,6 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^lynda\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://shib.lynda.com/Shibboleth.sso/InCommon?providerId=http://idp.op.ac.nz/adfs/services/trust&amp;target=https://shib.lynda.com/InCommon/$1 [R,L]
 
-# studentMail redirect rule
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^mail\.student\.op\.ac\.nz [NC,OR]
-RewriteCond %{HTTP_HOST} ^office\.student\.op\.ac\.nz [NC]
-RewriteRule ^(.*)$ https://www.outlook.com/student.op.ac.nz/$1 [R,L]
-
 # Myfiles redirect rule
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^myfiles\.op\.ac\.nz [NC]
@@ -45,7 +39,8 @@ RewriteRule ^(.*)$ https://connect.op.ac.nz/$1 [R,L]
 
 # office redirect rule
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^office\.op\.ac\.nz [NC]
+RewriteCond %{HTTP_HOST} ^office\.op\.ac\.nz [NC,OR]
+RewriteCond %{HTTP_HOST} ^office\.student\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&wtrealm=urn:federation:MicrosoftOnline&amp;wctx=MEST\%3D0\%26LoginOptions\%3D2\%26wa\%3Dwsignin1.0\%26rpsnv\%3D2\%26ver\%3D6.1.6206.0\%26wp\%3DMCMBI\%26wreply\%3Dhttps\%253A\%252F\%252Fotagopoly.sharepoint.com\%252Fsites\%252Fopdocs\%252FPages\%252Fhome.aspx [R,L]
 
 
@@ -56,7 +51,8 @@ RewriteRule ^(.*)$ https://idp.op.ac.nz/adfs/ls/?wa=wsignin1.0&wtrealm=urn:feder
 
 # O365 Mail redirect rule
 RewriteEngine On
-RewriteCond %{HTTP_HOST} ^mail\.op\.ac\.nz [NC]
+RewriteCond %{HTTP_HOST} ^mail\.op\.ac\.nz [NC,OR]
+RewriteCond %{HTTP_HOST} ^mail\.student\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://www.outlook.com/mail.op.ac.nz/  [R,L]
 
 # StudentSupport redirect rule
