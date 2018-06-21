@@ -123,7 +123,10 @@ RewriteCond %{HTTP_HOST} ^edubits\.ac\.nz [NC,OR]
 RewriteCond %{HTTP_HOST} ^edubit\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://edubits.nz/$1 [R,L]
 
-
+#marketing for Sports CAS-18072-B9W4S3
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^oae\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://www.op.ac.nz/study/physical-activity-and-wellbeing/new-zealand-certificate-in-outdoor-and-adventure-education-multi-skilled-level-4/$1 [R,L]
 
 ###########################################
 #  CODES:  - https://httpd.apache.org/docs/2.4/rewrite/flags.html
