@@ -128,6 +128,13 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^oae\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://www.op.ac.nz/study/physical-activity-and-wellbeing/new-zealand-certificate-in-outdoor-and-adventure-education-multi-skilled-level-4/$1 [R,L]
 
+# Lynda redirect rule
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^altest\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://ebsontrackplus.op.ac.nz/$1 [R,L]
+
+
+
 ###########################################
 #  CODES:  - https://httpd.apache.org/docs/2.4/rewrite/flags.html
 #   [R] = redirect 
