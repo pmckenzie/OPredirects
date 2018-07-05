@@ -128,7 +128,7 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^oae\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://www.op.ac.nz/study/physical-activity-and-wellbeing/new-zealand-certificate-in-outdoor-and-adventure-education-multi-skilled-level-4/$1 [R,L]
 
-# altest redirect rule
+# ebsontrackplus redirect rule
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^ebsontrackplus\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://ebsontrack.op.ac.nz/$1 [R,L]
