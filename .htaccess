@@ -131,6 +131,7 @@ RewriteRule ^(.*)$ https://www.op.ac.nz/study/physical-activity-and-wellbeing/ne
 # ebsontrackplus redirect rule
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^ebsontrackplus\.op\.ac\.nz [NC]
+RewriteCond %{HTTP_HOST} ^ebsagent\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://ebsontrack.op.ac.nz/$1 [R,L]
 
 
