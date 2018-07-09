@@ -115,6 +115,11 @@ RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www\.central\.op\.ac\.nz [NC]
 RewriteRule ^(.*)$ https://central.op.ac.nz/$1 [R,L]
 
+# www.auckland.op.ac.nz Redirect
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^www\.auckland\.op\.ac\.nz [NC]
+RewriteRule ^(.*)$ https://auckland.op.ac.nz/$1 [R,L]
+
 #EDUBITS Redirect
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^edubits\.co\.nz [NC,OR]
